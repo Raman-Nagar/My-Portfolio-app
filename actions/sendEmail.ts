@@ -1,11 +1,16 @@
 "use server";
 
-import React from "react";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { validateString, getErrorMessage } from "@/lib/utils";
-import ContactFormEmail from "@/email/contact-form-email";
+// import ContactFormEmail from "@/email/contact-form-email";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  service: process.env.MAIL_SERVICE || "gmail",
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
+});
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
@@ -17,31 +22,39 @@ export const sendEmail = async (formData: FormData) => {
       error: "Invalid sender email",
     };
   }
-  if (!validateString(message, 5000)) {
+  if (!validateString(message, 500)) {
     return {
       error: "Invalid message",
     };
   }
 
-  let data;
   try {
-    data = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: "ramannagar08082000@gmail.com",
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM,
+      to: senderEmail,
       subject: "Message from porfolio contact form",
-      reply_to: senderEmail,
-      react: React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
-      }),
+      // html: React.createElement(ContactFormEmail, {
+      //   message: message,
+      //   senderEmail: senderEmail,
+      // }),
+      html: `<div>
+      <h4>New message from your portfolio site</h4>
+          <div>
+            <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
+              <h5 className="leading-tight">
+                You received the following message from the contact form
+              </h5>
+              <p>${message}</p>
+              <hr />
+              <p>The sender's email is: ${senderEmail}</p>
+            </Section>
+          </div>
+    </div>`
     });
+    return { error: "" }
   } catch (error: unknown) {
     return {
       error: getErrorMessage(error),
     };
   }
-
-  return {
-    data,
-  };
 };

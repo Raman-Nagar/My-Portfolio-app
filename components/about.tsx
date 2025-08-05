@@ -18,32 +18,40 @@ export default function About() {
       id="about"
     >
       <SectionHeading>About me</SectionHeading>
-      <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">B. Tech</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
-        </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
-      </p>
 
-      <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        chess, watching movies, and playing cricket. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
-        learning how to play the guitar.
-      </p>
+      <motion.p className="mb-3">
+        After completing my B.Tech, I chose to follow my passion for programming
+        and enrolled in a coding bootcamp to become a full-stack web developer.
+        What excites me most about programming is the problem-solving process —
+        I enjoy the challenge of debugging and the satisfaction of building
+        efficient solutions.
+      </motion.p>
+      <motion.p className="mb-3">
+        My core tech stack includes{" "}
+        <motion.span className="font-medium">
+          React, Next.js, Node.js, and MongoDB,
+        </motion.span>{" "}
+        and I'm also proficient with{" "}
+        <motion.span className="font-medium">TypeScript</motion.span> and{" "}
+        <motion.span className="font-medium">Prisma</motion.span>. I'm
+        constantly exploring and learning new technologies to stay up-to-date
+        with the evolving tech landscape. Currently, I’m deepening my knowledge
+        in <motion.span className="font-medium">AI agents, AWS</motion.span>,
+        and <motion.span className="font-medium">CI/CD pipelines</motion.span>.
+      </motion.p>
+      <motion.p className="mb-3">
+        I'm actively seeking a{" "}
+        <motion.span className="font-medium">
+          full-time software developer
+        </motion.span>{" "}
+        role where I can grow, contribute to meaningful projects, and
+        collaborate with a passionate team.
+      </motion.p>
+
+      <motion.p>
+        Outside of coding, I enjoy chess, movies, and cricket. I’m always
+        curious and love exploring new topics beyond tech.
+      </motion.p>
     </motion.section>
   );
 }
