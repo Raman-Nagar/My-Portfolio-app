@@ -4,7 +4,7 @@ This is the official frontend implementation of the **Portfolio App** website, b
 
 ## 🚀 Live Demo
 
-🔗 [View Deployed Site](https://supreme-group-kappa.vercel.app)
+🔗 [View Deployed Site](https://my-portfolio-app-wheat-one.vercel.app/)
 
 ---
 
@@ -23,8 +23,8 @@ This is the official frontend implementation of the **Portfolio App** website, b
 
 ```bash
 # Clone the repo
-git clone https://github.com/Raman-Nagar/my-portfolio--app.git
-cd my-portfolio--app
+git clone https://github.com/Raman-Nagar/My-Portfolio-app.git
+cd My-Portfolio-app
 
 # Install dependencies
 npm install
