@@ -70,14 +70,16 @@ export const projectsData = [
     tags: ["React", "TypeScript", "Next.js", "Material UI", "Redux-toolkit", "RTK-Query"],
     imageUrl: TCP,
     liveUrl: "https://portal.dev.thecreditpros.com", //"https://portal-frontend.dev.thecreditpros.com/",
+    gitUrl: ""
   },
   {
-    title: "User Management Auth (Role-Based Access)",
+    title: "Role-based User Management (RBAC)",
     description:
       "This is the frontend for the User Management System built with React (Vite + TypeScript). It supports authentication, profile management, role-based UI, and email verification.",
     tags: ["React.js + Vite", "TypeScript", "Tailwind CSS + ShadCN UI", "TanStack React Query", "React Hook Form + Zod"],
     imageUrl: UserManagement,
-    liveUrl: "https://user-management-frontend-swart.vercel.app/"
+    liveUrl: "https://user-management-frontend-swart.vercel.app/",
+    gitUrl: ""
   },
   {
     title: "Social Media Content Calendar",
@@ -85,7 +87,8 @@ export const projectsData = [
       "A frontend web application that allows users to schedule social media posts across multiple dates, with filtering by category and post metrics tracking. Export the calendar to Excel for detailed reporting",
     tags: ["React", "Next.js", "Tailwind", "Radix UI"],
     imageUrl: SCCalendar,
-    liveUrl: "https://social-media-content-calendar-seven.vercel.app"
+    liveUrl: "https://social-media-content-calendar-seven.vercel.app",
+    gitUrl: ""
   },
   {
     title: "Pokémon Search App",
@@ -93,7 +96,8 @@ export const projectsData = [
       "A responsive Next.js 15‑powered web application that lets users browse, search, filter by type, and favorite Pokémon using the official PokéAPI",
     tags: ["TypeScript", "React", "Next.js", "Tailwind", "PokéAPI v2"],
     imageUrl: Pokemon,
-    liveUrl: "https://stackblitz.com/~/github.com/Raman-Nagar/Pokemon-Searech-App"
+    liveUrl: "https://stackblitz.com/~/github.com/Raman-Nagar/Pokemon-Searech-App",
+    gitUrl: ""
   },
   {
     title: "File Explorer App",
@@ -101,7 +105,8 @@ export const projectsData = [
       "A simple file explorer application (ex. VS code editore sidebar). you can Create, Rename and Delete any nested file or folder",
     tags: ["JavaScript", "React", "React Redux", "Tailwind"],
     imageUrl: FileExplorer,
-    liveUrl: "https://stackblitz.com/~/github.com/Raman-Nagar/file-explorer"
+    liveUrl: "https://stackblitz.com/~/github.com/Raman-Nagar/file-explorer",
+    gitUrl: ""
   },
 ] as const;
 
