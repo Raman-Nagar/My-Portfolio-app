@@ -98,7 +98,7 @@ export const projectsData = [
     imageUrl: Pokemon,
     liveUrl: "https://stackblitz.com/~/github.com/Raman-Nagar/Pokemon-Searech-App",
     gitUrl: ""
-  },
+  },  
   {
     title: "File Explorer App",
     description:
