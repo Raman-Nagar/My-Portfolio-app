@@ -34,27 +34,13 @@ export default function Intro() {
             <Image
               src={DP}
               alt="Raman portrait"
-              width="192"
-              height="192"
-              quality="95"
+              width={192}
+              height={192}
+              quality={95}
               priority={true}
               className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
-
-          {/* <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
-          >
-            👋
-          </motion.span> */}
         </div>
       </div>
 
@@ -65,12 +51,15 @@ export default function Intro() {
       >
         <span className="font-bold">Hello, I'm Raman👋.</span>
         <br />
-        I'm a <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">4 years</span> of hands-on experience
-        building modern web applications.
+        I'm a <span className="font-bold">Frontend Engineer</span> with{" "}
+        <span className="font-bold">4 years</span> of professional experience
+        building enterprise-grade web applications.
         <br /> I specialize in{" "}
-        <span className="font-bold">React, Next.js, Node.js, and MongoDB</span>,
-        and enjoy turning ideas into scalable digital products.
+        <span className="font-bold">
+          React, Next.js, TypeScript, and Redux Toolkit
+        </span>
+        , delivering scalable UIs, admin dashboards, and production-ready
+        frontend systems.
       </motion.h1>
 
       <motion.div
@@ -104,8 +93,10 @@ export default function Intro() {
 
         <a
           className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-105 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/raman-nagar-733b78158?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          href="https://www.linkedin.com/in/raman-nagar-733b78158"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
           <BsLinkedin />
         </a>
@@ -114,6 +105,8 @@ export default function Intro() {
           className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-105 hover:scale-105 hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
           href="https://github.com/Raman-Nagar"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
         >
           <FaGithubSquare />
         </a>

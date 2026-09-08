@@ -10,8 +10,23 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Raman | Personal Portfolio",
-  description: "Raman is a full-stack developer with 2 years of experience.",
+  title: "Raman Nagar | Frontend Engineer — React, Next.js, TypeScript",
+  description:
+    "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
+  // icons: {
+  //   icon: [
+  //     {
+  //       media: "(prefers-color-scheme: light)",
+  //       url: "/icons/FaviconLight.svg",
+  //       href: "/icons/FaviconLight.svg",
+  //     },
+  //     {
+  //       media: "(prefers-color-scheme: dark)",
+  //       url: "/icons/FaviconDark.svg",
+  //       href: "/icons/FaviconDark.svg",
+  //     },
+  //   ],
+  // }
 };
 
 export default function RootLayout({

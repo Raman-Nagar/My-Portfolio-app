@@ -20,37 +20,36 @@ export default function About() {
       <SectionHeading>About me</SectionHeading>
 
       <motion.p className="mb-3">
-        After completing my B.Tech, I chose to follow my passion for programming
-        and enrolled in a coding bootcamp to become a full-stack web developer.
-        What excites me most about programming is the problem-solving process —
-        I enjoy the challenge of debugging and the satisfaction of building
-        efficient solutions.
+        I'm a Frontend Engineer with 4 years of professional experience building
+        production-grade web applications and enterprise admin dashboards. I've
+        worked across the full frontend stack — from architecting scalable
+        React/Next.js applications to implementing RBAC systems, visual workflow
+        builders, and multilingual platforms used in real production
+        environments.
       </motion.p>
       <motion.p className="mb-3">
-        My core tech stack includes{" "}
+        My core expertise is in{" "}
         <motion.span className="font-medium">
-          React, Next.js, Node.js, and MongoDB,
+          React, Next.js, TypeScript, and Redux Toolkit,
         </motion.span>{" "}
-        and I'm also proficient with{" "}
-        <motion.span className="font-medium">TypeScript</motion.span> and{" "}
-        <motion.span className="font-medium">Prisma</motion.span>. I'm
-        constantly exploring and learning new technologies to stay up-to-date
-        with the evolving tech landscape. Currently, I’m deepening my knowledge
-        in <motion.span className="font-medium">AI agents, AWS</motion.span>,
-        and <motion.span className="font-medium">CI/CD pipelines</motion.span>.
+        with strong proficiency in{" "}
+        <motion.span className="font-medium">
+          TanStack Query, React Hook Form, and Zod.
+        </motion.span>{" "}
+        I'm currently applying{" "}
+        <motion.span className="font-medium">AWS and Docker</motion.span> in
+        production and deepening my knowledge in{" "}
+        <motion.span className="font-medium">CI/CD pipelines</motion.span>.
       </motion.p>
       <motion.p className="mb-3">
-        I'm actively seeking a{" "}
-        <motion.span className="font-medium">
-          full-time software developer
-        </motion.span>{" "}
-        role where I can grow, contribute to meaningful projects, and
-        collaborate with a passionate team.
+        I thrive in collaborative, cross-functional teams and take ownership of
+        features end-to-end — from Figma designs and API contracts to
+        deployment. I care deeply about code quality, accessibility, and
+        building things that scale.
       </motion.p>
-
       <motion.p>
-        Outside of coding, I enjoy chess, movies, and cricket. I’m always
-        curious and love exploring new topics beyond tech.
+        Outside of work, I enjoy chess, cricket, and exploring topics beyond
+        tech. I'm always curious and constantly learning.
       </motion.p>
     </motion.section>
   );
