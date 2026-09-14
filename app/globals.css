@@ -4,12 +4,61 @@
 
 html {
   --line-color: #e5e7eb;
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --accent-dark: #4f46e5;
 }
 
 html.dark {
   --line-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Dot grid background */
+.dot-grid {
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+html.dark .dot-grid {
+  background-image: radial-gradient(circle, #334155 1px, transparent 1px);
+}
+
 .borderBlack {
   @apply border border-black/10;
+}
+
+/* Accent gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+/* Glowing ring on profile photo */
+.photo-ring {
+  background: conic-gradient(
+    from 0deg,
+    #6366f1,
+    #8b5cf6,
+    #ec4899,
+    #6366f1
+  );
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Accent button */
+.btn-accent {
+  @apply bg-accent text-white px-7 py-3 flex items-center gap-2 rounded-full
+    outline-none focus:scale-105 hover:scale-105 hover:bg-accent-dark
+    active:scale-105 transition font-medium;
+}
+
+/* Subtle badge */
+.badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium;
 }

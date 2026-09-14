@@ -1,14 +1,20 @@
 import Header from "@/components/header";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
+import ScrollProgress from "@/components/scroll-progress";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  weight: ["400", "600", "700", "800"],
+});
 
 const siteUrl = "https://www.ramannagar.in";
 
@@ -19,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Raman Nagar",
   },
   description:
-    "Frontend Engineer with 3+ years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
+    "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
   keywords: [
     "Raman Nagar",
     "Frontend Engineer",
@@ -41,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Raman Nagar | Frontend Engineer",
     title: "Raman Nagar | Frontend Engineer — React, Next.js, TypeScript",
     description:
-      "Frontend Engineer with 3+ years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
+      "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
     images: [
       {
         url: "/my-dp-2.jpg",
@@ -55,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Raman Nagar | Frontend Engineer — React, Next.js, TypeScript",
     description:
-      "Frontend Engineer with 3+ years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
+      "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
     images: ["/my-dp-2.jpg"],
   },
   robots: {
@@ -72,6 +78,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: "fPe56k8TwdW3VAlmSdoEsc8DZuoMQrN6bKYge_9LdJo",
+  },
 };
 
 export default function RootLayout({
@@ -82,13 +91,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${inter.variable} ${sora.variable} font-sans bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-[#0f172a] dark:text-gray-50 dark:text-opacity-90`}
       >
-        <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
+        {/* dot grid background */}
+        <div className="dot-grid fixed inset-0 -z-20 opacity-50 dark:opacity-20" />
+
+        {/* accent blobs */}
+        <div className="bg-[#c7d2fe] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#3730a3] opacity-50"></div>
+        <div className="bg-[#ddd6fe] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#4c1d95] opacity-50"></div>
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
+            <ScrollProgress />
             <Header />
             {children}
             <Footer />

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
+import { HiLocationMarker } from "react-icons/hi";
+import { TypeAnimation } from "react-type-animation";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import DP from "../public/my-dp-2.jpg";
@@ -19,71 +21,117 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-[56rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
-      <div className="flex items-center justify-center">
-        <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "tween",
-              duration: 0.2,
-            }}
-          >
-            <Image
-              src={DP}
-              alt="Raman portrait"
-              width={192}
-              height={192}
-              quality={95}
-              priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
-            />
-          </motion.div>
-        </div>
+      {/* profile photo with spinning gradient ring */}
+      <div className="flex items-center justify-center mb-6">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "tween", duration: 0.3 }}
+        >
+          {/* spinning gradient ring */}
+          <div className="absolute inset-0 rounded-full photo-ring p-[3px] -m-[3px]" />
+          {/* white gap ring */}
+          <div className="absolute inset-0 rounded-full bg-white dark:bg-[#0f172a] scale-[1.04]" />
+          <Image
+            src={DP}
+            alt="Raman Nagar — Frontend Engineer"
+            width={192}
+            height={192}
+            quality={95}
+            priority={true}
+            className="relative h-36 w-36 rounded-full object-cover border-4 border-white dark:border-[#0f172a] shadow-2xl"
+          />
+
+          {/* availability green dot */}
+          <motion.span
+            className="absolute bottom-2 right-2 h-4 w-4 rounded-full bg-emerald-400 border-2 border-white dark:border-[#0f172a] shadow-md"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
+            title="Available for opportunities"
+          />
+        </motion.div>
       </div>
 
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="font-bold">Hello, I'm Raman👋.</span>
-        <br />
-        I'm a <span className="font-bold">Frontend Engineer</span> with{" "}
-        <span className="font-bold">4 years</span> of professional experience
-        building enterprise-grade web applications.
-        <br /> I specialize in{" "}
-        <span className="font-bold">
-          React, Next.js, TypeScript, and Redux Toolkit
-        </span>
-        , delivering scalable UIs, admin dashboards, and production-ready
-        frontend systems.
-      </motion.h1>
-
+      {/* availability badge + location */}
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
+        className="flex items-center justify-center gap-3 mb-5 flex-wrap"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <span className="badge bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          Open to opportunities
+        </span>
+        <span className="badge bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-400 border border-gray-200 dark:border-white/10">
+          <HiLocationMarker className="text-accent" />
+          Indore, India
+        </span>
+      </motion.div>
+
+      {/* heading */}
+      <motion.div
+        className="mb-6 px-4"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-        }}
+        transition={{ delay: 0.1 }}
+      >
+        <h1 className="font-display text-3xl sm:text-5xl font-bold leading-tight mb-3">
+          Hi, I'm <span className="gradient-text">Raman Nagar</span> 👋
+        </h1>
+        <div className="text-xl sm:text-2xl font-display font-semibold text-gray-600 dark:text-gray-300 h-9">
+          <TypeAnimation
+            sequence={[
+              "Frontend Engineer",
+              2000,
+              "React & Next.js Developer",
+              2000,
+              "TypeScript Specialist",
+              2000,
+              "UI/UX Focused Developer",
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            className="text-accent"
+          />
+        </div>
+        <p className="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-[42rem] mx-auto leading-relaxed">
+          4 years building{" "}
+          <span className="font-semibold text-gray-800 dark:text-gray-200">
+            enterprise-grade web apps
+          </span>
+          , admin dashboards, and scalable UIs using React, Next.js, TypeScript,
+          and Redux Toolkit.
+        </p>
+      </motion.div>
+
+      {/* CTA buttons */}
+      <motion.div
+        className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-base font-medium"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-105 transition"
+          className="group bg-[#6366f1] hover:bg-[#4f46e5] text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-105 transition shadow-lg shadow-indigo-500/25"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact me here{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
+          Contact me
+          <BsArrowRight className="opacity-80 group-hover:translate-x-1 transition" />
         </Link>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
+          className="group bg-white dark:bg-white/10 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack hover:bg-gray-50 dark:hover:bg-white/20 shadow-sm"
           href="/Raman-Resume.pdf"
           download
         >
@@ -92,7 +140,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-105 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="bg-white dark:bg-white/10 p-4 text-[#6366f1] hover:text-[#4f46e5] flex items-center rounded-full focus:scale-105 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack shadow-sm hover:bg-gray-50 dark:hover:bg-white/20"
           href="https://www.linkedin.com/in/raman-nagar-733b78158"
           target="_blank"
           rel="noopener noreferrer"
@@ -102,7 +150,7 @@ export default function Intro() {
         </a>
 
         <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-105 hover:scale-105 hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="bg-white dark:bg-white/10 p-4 text-[#6366f1] hover:text-[#4f46e5] flex items-center text-[1.35rem] rounded-full focus:scale-105 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack shadow-sm hover:bg-gray-50 dark:hover:bg-white/20"
           href="https://github.com/Raman-Nagar"
           target="_blank"
           rel="noopener noreferrer"
