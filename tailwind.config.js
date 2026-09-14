@@ -41,7 +41,7 @@ module.exports = {
     },
   },
   plugins: [
-    function ({ addUtilities }: { addUtilities: (u: Record<string, Record<string, string>>) => void }) {
+    function ({ addUtilities }) {
       addUtilities({
         ".scrollbar-hide": {
           "-ms-overflow-style": "none",

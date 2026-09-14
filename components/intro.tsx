@@ -153,8 +153,9 @@ export default function Intro() {
           href="#contact"
           className="group bg-[#6366f1] hover:bg-[#4f46e5] text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-105 transition shadow-lg shadow-indigo-500/25"
           onClick={() => {
+            const now = Date.now();
             setActiveSection("Contact");
-            setTimeOfLastClick(Date.now());
+            setTimeOfLastClick(now);
           }}
         >
           Contact me

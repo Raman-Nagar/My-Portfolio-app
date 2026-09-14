@@ -5,12 +5,13 @@ import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import {
-  SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNextdotjs,
+  SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact, SiNextdotjs,
   SiRedux, SiReactquery, SiTailwindcss, SiMui,
   SiNodedotjs, SiExpress, SiMongodb, SiPrisma, SiNestjs,
-  SiDocker, SiAmazon, SiGit,
+  SiDocker, SiGit,
 } from "react-icons/si";
 import { TbBrandReactNative, TbComponents } from "react-icons/tb";
+import { FaAws } from "react-icons/fa";
 
 const skillGroups = [
   {
@@ -19,7 +20,7 @@ const skillGroups = [
     labelColor: "text-indigo-600 dark:text-indigo-400",
     skills: [
       { name: "HTML", icon: SiHtml5, color: "text-orange-500" },
-      { name: "CSS", icon: SiCss3, color: "text-blue-500" },
+      { name: "CSS", icon: SiCss, color: "text-blue-500" },
       { name: "JavaScript", icon: SiJavascript, color: "text-yellow-500" },
       { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
       { name: "React", icon: SiReact, color: "text-cyan-500" },
@@ -66,7 +67,7 @@ const skillGroups = [
     labelColor: "text-orange-600 dark:text-orange-400",
     skills: [
       { name: "Docker", icon: SiDocker, color: "text-blue-500" },
-      { name: "AWS", icon: SiAmazon, color: "text-orange-500" },
+      { name: "AWS", icon: FaAws, color: "text-orange-500" },
       { name: "Git", icon: SiGit, color: "text-red-500" },
     ],
   },

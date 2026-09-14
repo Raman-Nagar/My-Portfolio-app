@@ -14,8 +14,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleClick = (name: (typeof links)[number]["name"]) => {
+    // eslint-disable-next-line react-hooks/purity
+    const now = Date.now();
     setActiveSection(name);
-    setTimeOfLastClick(Date.now());
+    setTimeOfLastClick(now);
     setMenuOpen(false);
   };
 
