@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
     images: [
       {
-        url: "/my-dp.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Raman Nagar — Frontend Engineer",
@@ -63,7 +63,8 @@ export const metadata: Metadata = {
     title: "Raman Nagar | Frontend Engineer — React, Next.js, TypeScript",
     description:
       "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
-    images: ["/my-dp.png"],
+    images: ["/og-image.png"],
+    creator: "@raman_nagar_dev",
   },
   robots: {
     index: true,
@@ -82,6 +83,7 @@ export const metadata: Metadata = {
   verification: {
     google: "fPe56k8TwdW3VAlmSdoEsc8DZuoMQrN6bKYge_9LdJo",
   },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
