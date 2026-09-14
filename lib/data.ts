@@ -169,6 +169,7 @@ export const skillsData = [
   "Material UI",
   "ShadCN UI",
   "Node.js",
+  "NestJS",
   "Express",
   "MongoDB",
   "Prisma",

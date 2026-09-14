@@ -40,7 +40,7 @@ export default function Contact() {
       </p>
 
       <form
-        className="mt-10 flex flex-col dark:text-black"
+        className="mt-10 flex flex-col gap-3"
         action={async (formData) => {
           const { error } = await sendEmail(formData);
 
@@ -55,7 +55,7 @@ export default function Contact() {
         }}
       >
         <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="h-14 px-4 rounded-xl bg-white/70 dark:bg-slate-800/50 border border-white/60 dark:border-slate-700/50 backdrop-blur-md text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#6366f1]/50 focus:border-[#6366f1]/50 transition-all shadow-sm"
           name="senderEmail"
           type="email"
           required
@@ -63,7 +63,7 @@ export default function Contact() {
           placeholder="Your email"
         />
         <textarea
-          className="my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="rounded-xl bg-white/70 dark:bg-slate-800/50 border border-white/60 dark:border-slate-700/50 backdrop-blur-md p-4 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#6366f1]/50 focus:border-[#6366f1]/50 transition-all shadow-sm resize-none"
           name="message"
           placeholder="Your message"
           required

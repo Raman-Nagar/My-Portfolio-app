@@ -35,7 +35,7 @@ export default function About() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center px-6 py-3 rounded-2xl bg-white dark:bg-white/10 border border-black/5 dark:border-white/10 shadow-sm min-w-[90px]"
+            className="flex flex-col items-center px-6 py-3 rounded-2xl glass-card min-w-[90px]"
           >
             <span className="font-display text-2xl font-bold text-[#6366f1]">
               {stat.value}

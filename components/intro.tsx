@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
@@ -11,11 +11,33 @@ import { HiLocationMarker } from "react-icons/hi";
 import { TypeAnimation } from "react-type-animation";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import DP from "../public/my-dp-2.jpg";
+import DP from "../public/my-dp.png";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-60, 60], [12, -12]), {
+    stiffness: 200,
+    damping: 20,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-60, 60], [-12, 12]), {
+    stiffness: 200,
+    damping: 20,
+  });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left - rect.width / 2);
+    mouseY.set(e.clientY - rect.top - rect.height / 2);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
     <section
@@ -23,18 +45,28 @@ export default function Intro() {
       id="home"
       className="mb-28 max-w-[56rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
-      {/* profile photo with spinning gradient ring */}
+      {/* profile photo with 3D tilt + spinning gradient ring */}
       <div className="flex items-center justify-center mb-6">
         <motion.div
-          className="relative"
+          className="relative cursor-pointer"
+          style={{
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d",
+            perspective: 800,
+          }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "tween", duration: 0.3 }}
         >
+          {/* glow behind photo */}
+          <div className="absolute inset-0 rounded-full bg-indigo-500/30 blur-2xl scale-150 -z-10" />
           {/* spinning gradient ring */}
           <div className="absolute inset-0 rounded-full photo-ring p-[3px] -m-[3px]" />
           {/* white gap ring */}
-          <div className="absolute inset-0 rounded-full bg-white dark:bg-[#0f172a] scale-[1.04]" />
+          <div className="absolute inset-0 rounded-full bg-white dark:bg-[#0a0f1e] scale-[1.04]" />
           <Image
             src={DP}
             alt="Raman Nagar — Frontend Engineer"
@@ -42,12 +74,11 @@ export default function Intro() {
             height={192}
             quality={95}
             priority={true}
-            className="relative h-36 w-36 rounded-full object-cover border-4 border-white dark:border-[#0f172a] shadow-2xl"
+            className="relative h-44 w-44 rounded-full object-cover border-4 border-white dark:border-[#0a0f1e] shadow-2xl"
           />
-
           {/* availability green dot */}
           <motion.span
-            className="absolute bottom-2 right-2 h-4 w-4 rounded-full bg-emerald-400 border-2 border-white dark:border-[#0f172a] shadow-md"
+            className="absolute bottom-3 right-3 h-4 w-4 rounded-full bg-emerald-400 border-2 border-white dark:border-[#0a0f1e] shadow-md"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
@@ -80,7 +111,7 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        <h1 className="font-display text-3xl sm:text-5xl font-bold leading-tight mb-3">
+        <h1 className="font-display text-5xl sm:text-7xl font-black leading-tight mb-3 tracking-tight">
           Hi, I'm <span className="gradient-text">Raman Nagar</span> 👋
         </h1>
         <div className="text-xl sm:text-2xl font-display font-semibold text-gray-600 dark:text-gray-300 h-9">

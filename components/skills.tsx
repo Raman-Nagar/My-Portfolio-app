@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import {
   SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNextdotjs,
   SiRedux, SiReactquery, SiTailwindcss, SiMui,
-  SiNodedotjs, SiExpress, SiMongodb, SiPrisma,
+  SiNodedotjs, SiExpress, SiMongodb, SiPrisma, SiNestjs,
   SiDocker, SiAmazon, SiGit,
 } from "react-icons/si";
 import { TbBrandReactNative, TbComponents } from "react-icons/tb";
@@ -54,6 +54,7 @@ const skillGroups = [
     labelColor: "text-emerald-600 dark:text-emerald-400",
     skills: [
       { name: "Node.js", icon: SiNodedotjs, color: "text-green-600" },
+      { name: "NestJS", icon: SiNestjs, color: "text-red-600" },
       { name: "Express", icon: SiExpress, color: "text-gray-700 dark:text-gray-300" },
       { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
       { name: "Prisma", icon: SiPrisma, color: "text-slate-700 dark:text-slate-300" },
@@ -95,7 +96,7 @@ export default function Skills() {
         {skillGroups.map((group, gi) => (
           <motion.div
             key={group.label}
-            className={`rounded-2xl border p-5 ${group.color}`}
+            className={`glass-card rounded-2xl p-5 ${group.color}`}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -104,11 +105,11 @@ export default function Skills() {
             <span className={`text-xs font-bold uppercase tracking-widest mb-4 block ${group.labelColor}`}>
               {group.label}
             </span>
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible scrollbar-hide">
               {group.skills.map((skill, si) => (
                 <motion.li
                   key={skill.name}
-                  className="flex items-center gap-2 bg-white dark:bg-white/10 border border-black/5 dark:border-white/10 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 dark:text-white/80 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="flex items-center gap-2 bg-white/80 dark:bg-slate-800/60 border border-white/60 dark:border-slate-700/50 backdrop-blur-sm rounded-xl px-4 py-2 text-sm font-medium text-gray-700 dark:text-white/80 shadow-sm hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1 hover:border-[#6366f1]/30 transition-all duration-200"
                   variants={fadeIn}
                   initial="initial"
                   whileInView="animate"

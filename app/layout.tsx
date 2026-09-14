@@ -8,6 +8,7 @@ import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
 import ScrollProgress from "@/components/scroll-progress";
+import BackToTop from "@/components/back-to-top";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sora = Sora({
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
       "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
     images: [
       {
-        url: "/my-dp-2.jpg",
+        url: "/my-dp.png",
         width: 1200,
         height: 630,
         alt: "Raman Nagar — Frontend Engineer",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     title: "Raman Nagar | Frontend Engineer — React, Next.js, TypeScript",
     description:
       "Frontend Engineer with 4 years of experience building enterprise web apps, admin dashboards, and scalable UIs using React, Next.js, TypeScript, and Redux Toolkit.",
-    images: ["/my-dp-2.jpg"],
+    images: ["/my-dp.png"],
   },
   robots: {
     index: true,
@@ -90,15 +91,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth">
+      <head>
+        <meta name="theme-color" content="#6366f1" />
+      </head>
       <body
-        className={`${inter.variable} ${sora.variable} font-sans bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-[#0f172a] dark:text-gray-50 dark:text-opacity-90`}
+        className={`${inter.variable} ${sora.variable} font-sans bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-[#0a0f1e] dark:text-gray-50 dark:text-opacity-90 noise `}
       >
-        {/* dot grid background */}
-        <div className="dot-grid fixed inset-0 -z-20 opacity-50 dark:opacity-20" />
+        {/* mesh gradient background */}
+        <div className="fixed inset-0 -z-20 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,102,241,0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,102,241,0.18),transparent)]" />
 
-        {/* accent blobs */}
-        <div className="bg-[#c7d2fe] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#3730a3] opacity-50"></div>
-        <div className="bg-[#ddd6fe] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#4c1d95] opacity-50"></div>
+        {/* accent blobs — larger, softer, more premium */}
+        <div className="fixed top-[-10rem] -z-10 right-[5rem] h-[45rem] w-[45rem] rounded-full bg-indigo-200/40 dark:bg-indigo-900/20 blur-[8rem]" />
+        <div className="fixed top-[20rem] -z-10 left-[-20rem] h-[40rem] w-[55rem] rounded-full bg-violet-200/30 dark:bg-violet-900/15 blur-[8rem]" />
+        <div className="fixed bottom-[-10rem] -z-10 right-[-10rem] h-[35rem] w-[35rem] rounded-full bg-pink-200/20 dark:bg-pink-900/10 blur-[8rem]" />
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
@@ -106,7 +111,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
-
+            <BackToTop />
             <Toaster position="top-right" />
             <ThemeSwitch />
           </ActiveSectionContextProvider>

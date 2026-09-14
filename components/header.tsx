@@ -23,7 +23,7 @@ export default function Header() {
     <header className="z-[999] relative">
       {/* desktop nav pill */}
       <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white/40 bg-white/80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[40rem] sm:rounded-full dark:bg-[#0f172a]/80 dark:border-indigo-500/20"
+        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white/50 bg-white/75 shadow-lg shadow-black/[0.05] backdrop-blur-xl sm:top-6 sm:h-[3.25rem] sm:w-[40rem] sm:rounded-full dark:bg-slate-900/70 dark:border-slate-700/50 dark:shadow-black/20"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       />
@@ -74,7 +74,7 @@ export default function Header() {
           Raman.
         </motion.span>
         <motion.button
-          className="p-2 rounded-full bg-white/80 dark:bg-[#0f172a]/80 border border-black/10 dark:border-white/10 backdrop-blur-sm shadow-sm text-gray-700 dark:text-white"
+          className="p-2 rounded-full bg-white/80 dark:bg-slate-800/80 border border-black/10 dark:border-slate-700/50 backdrop-blur-sm shadow-sm text-gray-700 dark:text-white"
           onClick={() => setMenuOpen((o) => !o)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -88,7 +88,7 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="sm:hidden fixed top-[4.5rem] left-0 right-0 z-[998] bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-md border-b border-black/5 dark:border-white/10 shadow-xl"
+            className="sm:hidden fixed top-[4.5rem] left-0 right-0 z-[998] bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-black/5 dark:border-slate-700/50 shadow-xl"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
